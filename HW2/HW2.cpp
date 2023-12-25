@@ -148,7 +148,7 @@
 //		vvod(array, columns, rows);
 //		out(array, columns, rows);
 //		std::cout << "\n";
-//		delete[]array;
+//		delete []array;
 //	}
 //	return 0;
 //}
@@ -157,7 +157,6 @@
 // В основной программе задавайте два целых параметра и символьный знак операции до тех пор, пока не будет введен пробел в качестве знака операции.
 // В выходных данных выводите значения функций. 
 //#include <iostream>
-//#include <string>
 //double minus(int num1, int num2) {//функция минуса
 //	double answer = num1 - num2;
 //	return answer;
@@ -205,8 +204,38 @@
 //		std::cout << "Answer: " << answer << "\n"; //вывод ответа
 //
 //	}
-//
+//  delete znak;
 //	return 0;
 //}
 //_________________________________________________Leetcode______________________________________________________________________________________________________________________________________________________
+//Вам предоставляется 0 - индексированный целочисленный массив nums, где nums[i] представляет оценку ith учащегося.Вам также дается целое число k.
+//
+//Выберите баллы любых k учащихся из массива таким образом, чтобы разница между наивысшим и наименьшим из k баллов была минимальна.
+//
+//Возвращает минимально возможную разницу.
+#include <iostream>
 
+int Minimal(int* array, int NumS, int k) {
+	int answer = 10000000000;
+	for (int i = 0; i <= NumS - k; i++) {
+		if (array[i + k - 1] - array[i] < answer && array[i + k - 1] - array[i] > 0) {
+			answer = array[i + k - 1] - array[i];
+		}
+	}
+	return answer;
+}
+int main() {
+	int NumS = 0;
+	std::cout << "Write the number of students: ";
+	std::cin >> NumS;
+	int *array = new int[NumS];
+	for (int i = 0; i < NumS; i++) {
+		std::cout << "Write the mark of student N" << i+1 << ": ";
+		std::cin >> array[i];
+	}
+	int k = 0;
+	std::cout << "Write the K of students: ";
+	std::cin >> k;
+	std::cout << Minimal(array, NumS, k);
+	return 0;
+}
