@@ -208,34 +208,112 @@
 //	return 0;
 //}
 //_________________________________________________Leetcode______________________________________________________________________________________________________________________________________________________
-//Вам предоставляется 0 - индексированный целочисленный массив nums, где nums[i] представляет оценку ith учащегося.Вам также дается целое число k.
+//6)Вам предоставляется 0 - индексированный целочисленный массив nums, где nums[i] представляет оценку ith учащегося.Вам также дается целое число k.
 //
 //Выберите баллы любых k учащихся из массива таким образом, чтобы разница между наивысшим и наименьшим из k баллов была минимальна.
 //
 //Возвращает минимально возможную разницу.
-#include <iostream>
-
-int Minimal(int* array, int NumS, int k) {
-	int answer = 10000000000;
-	for (int i = 0; i <= NumS - k; i++) {
-		if (array[i + k - 1] - array[i] < answer && array[i + k - 1] - array[i] > 0) {
-			answer = array[i + k - 1] - array[i];
-		}
-	}
-	return answer;
-}
-int main() {
-	int NumS = 0;
-	std::cout << "Write the number of students: ";
-	std::cin >> NumS;
-	int *array = new int[NumS];
-	for (int i = 0; i < NumS; i++) {
-		std::cout << "Write the mark of student N" << i+1 << ": ";
-		std::cin >> array[i];
-	}
-	int k = 0;
-	std::cout << "Write the K of students: ";
-	std::cin >> k;
-	std::cout << Minimal(array, NumS, k);
-	return 0;
-}
+//#include <iostream>
+//
+//int Minimal(int* array, int NumS, int k) {
+//	int answer = 10000000000;
+//	for (int i = 0; i <= NumS - k; i++) {
+//		if (array[i + k - 1] - array[i] < answer && array[i + k - 1] - array[i] > 0) {
+//			answer = array[i + k - 1] - array[i];
+//		}
+//	}
+//	return answer;
+//}
+//int main() {
+//	int NumS = 0;
+//	std::cout << "Write the number of students: ";
+//	std::cin >> NumS;
+//	int *array = new int[NumS];
+//	for (int i = 0; i < NumS; i++) {
+//		std::cout << "Write the mark of student N" << i+1 << ": ";
+//		std::cin >> array[i];
+//	}
+//	int k = 0;
+//	std::cout << "Write the K of students: ";
+//	std::cin >> k;
+//	std::cout << Minimal(array, NumS, k);
+//  delete []array;
+//	return 0;
+//}
+// 
+// 
+//7)Учитывая массив целых чисел arr, счастливое целое число - это целое число, частота которого в массиве равна его значению.
+// 
+//Возвращает наибольшее счастливое целое число в массиве.Если нет счастливого целого числа, верните - 1.
+//#include <iostream>
+//int Luck(int* array, int Num) {
+//	int ans = 0;
+//	int Kol = 0; // количество выпадений числа
+//	for (int i = 0; i <= 500; i++) {
+//		for (int k = 0; k <= Num; k++) {
+//			if (i == array[k]) {
+//				Kol += 1;
+//			}
+//		}
+//		if (Kol == i) {
+//			ans = i;
+//		}
+//	}
+//	if (ans == 0) {
+//		return -1;
+//	}
+//	return ans;
+//}
+//int main() {
+//	int Num = 0;
+//	std::cout << "Write the range of array: ";
+//	std::cin >> Num;
+//	int *array = new int[Num];
+//	for (int i = 0; i < Num; i++) {
+//		std::cout << "Write the number N" << i+1 << ": ";
+//		std::cin >> array[i];
+//	}
+//	std::cout << Luck(array, Num);
+//  delete []array;
+//	return 0;
+//}
+//
+// 
+// 
+// 8)Учитывая массив nums размера n, верните мажоритарный элемент.
+//
+//Мажоритарный элемент - это элемент, который появляется более ⌊n / 2⌋ раз.Можно предположить, что мажоритарный элемент всегда существует в массиве.
+//#include <iostream>
+//void Major(int* array, int Num) {
+//	double Maj = Num / 2;
+//	int k = 0;//Число для проверки кол-ва чисел в массиве
+//	for (int i = 0; i < Num; i++) {
+//		int d = 0;//счётчик кол-ва цифр k
+//		if (array[i] == -1){}
+//		else {
+//			k = array[i];
+//			for (int g = 0; g < Num; g++) {
+//				if (k == array[g]) {
+//					d++;
+//					array[g] = -1;
+//				}
+//			}
+//			if (d > Maj) {
+//				std::cout << k << " ";
+//			}
+//		}
+//	}
+//}
+//int main() {
+//	int Num = 0;
+//	std::cout << "Write the range of array: ";
+//	std::cin >> Num;
+//	int* array = new int[Num];
+//	for (int i = 0; i < Num; i++) {
+//		std::cout << "Write the number N" << i + 1 << ": ";
+//		std::cin >> array[i];
+//	}
+//	Major(array, Num);
+//	delete []array;
+//	return 0;
+//}
